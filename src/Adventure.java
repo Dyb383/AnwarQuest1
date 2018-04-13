@@ -47,7 +47,7 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
         int theCode=e.getKeyCode();
         //ONCE THE GAME HAS STARTED
         if (gameStarted==true) {
-            if (theCode == KeyEvent.VK_UP)
+            if (theCode == KeyEvent.VK_W)
             {
                 //Makes sure he doesn't go off the island, but can still move after colliding.
                 if (myPlayer.x<50)
@@ -62,7 +62,7 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
                     myPlayer.moveUp();
                     playerDirection = "up";}
             }
-            if (theCode == KeyEvent.VK_DOWN)
+            if (theCode == KeyEvent.VK_S)
             {
                 //Makes sure he doesn't go off the island, but can still move after colliding.
                 if (myPlayer.x<50)
@@ -77,7 +77,7 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
                     myPlayer.moveDown();
                     playerDirection = "down";}
             }           
-            if (theCode == KeyEvent.VK_RIGHT)
+            if (theCode == KeyEvent.VK_D)
             {
                 //Makes sure he doesn't go off the island, but can still move after colliding.
                 if (myPlayer.x<50)
@@ -92,7 +92,7 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
                     myPlayer.moveRight();
                     playerDirection = "right";}
             }
-            if (theCode == KeyEvent.VK_LEFT)
+            if (theCode == KeyEvent.VK_A)
             {
                 //Makes sure he doesn't go off the island, but can still move after colliding.
                 if (myPlayer.x<50)
@@ -190,26 +190,50 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
             if (battlePlaces.isCollision1(myPlayer)==true) {
                 Battle battleRat = new Battle("Rat");
                 battleRat.setPlayer(myPlayer);
-                myPlayer.x=250;
-                myPlayer.y=250;
+                if (playerDirection.equals ("down")){
+                    myPlayer.y-=10; }
+                if (playerDirection.equals ("up")){
+                    myPlayer.y+=10; }
+                if (playerDirection.equals ("left")){
+                    myPlayer.x+=10; }
+                if (playerDirection.equals ("right")){
+                    myPlayer.x-=10; }
             }
             if (battlePlaces.isCollision2(myPlayer)==true) {
                 Battle battleDragon = new Battle("Dragon");
                 battleDragon.setPlayer(myPlayer);
-                myPlayer.x=250;
-                myPlayer.y=250;
+                if (playerDirection.equals ("down")){
+                    myPlayer.y-=10; }
+                if (playerDirection.equals ("up")){
+                    myPlayer.y+=10; }
+                if (playerDirection.equals ("left")){
+                    myPlayer.x+=10; }
+                if (playerDirection.equals ("right")){
+                    myPlayer.x-=10; }
             }
             if (battlePlaces.isCollision3(myPlayer)==true) {
                 Battle battleGoblin = new Battle("Goblin");
                 battleGoblin.setPlayer(myPlayer);
-                myPlayer.x=250;
-                myPlayer.y=250;
+                if (playerDirection.equals ("down")){
+                    myPlayer.y-=10; }
+                if (playerDirection.equals ("up")){
+                    myPlayer.y+=10; }
+                if (playerDirection.equals ("left")){
+                    myPlayer.x+=10; }
+                if (playerDirection.equals ("right")){
+                    myPlayer.x-=10; }
             }
             if (battlePlaces.isCollision4(myPlayer)==true) {
                 Battle battleOctopus = new Battle("Octopus");
                 battleOctopus.setPlayer(myPlayer);
-                myPlayer.x=250;
-                myPlayer.y=250;
+                if (playerDirection.equals ("down")){
+                    myPlayer.y-=10; }
+                if (playerDirection.equals ("up")){
+                    myPlayer.y+=10; }
+                if (playerDirection.equals ("left")){
+                    myPlayer.x+=10; }
+                if (playerDirection.equals ("right")){
+                    myPlayer.x-=10; }
             }
             
             if (battlePlaces.isCollisionNext(myPlayer)==true) {
