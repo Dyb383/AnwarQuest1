@@ -1,6 +1,5 @@
 /**
- * @author (your name) 
- * @version (a version number or a date)
+ * Monster class page
  */
 public class Monsters
 {

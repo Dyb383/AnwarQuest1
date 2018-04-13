@@ -5,9 +5,6 @@ import java.awt.image.*;
 
 /**
  * Overworld class. Has sprites and our character running around creating events for battle.
- * 
- * @author Nathan Mathis Caleb Angell
- * @version 1.0, 1/15/2014
  */
 public class Adventure extends JFrame implements ActionListener,KeyListener,Runnable
 {

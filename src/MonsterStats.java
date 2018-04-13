@@ -1,8 +1,5 @@
 /**
- * Write a description of class Rat here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Monster Stats class
  */
 public class MonsterStats
 {
