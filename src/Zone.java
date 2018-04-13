@@ -7,6 +7,14 @@ public class Zone {
 	private int defaulty;
 	private ArrayList<Integer> locations = new ArrayList<Integer>();
 	private Zone next;
+	
+	public void Zone(Image imgIn, int defx, int defy, Zone nextIn)
+	{
+		img =  imgIn;
+		defaultx=defx;
+		defaulty=defy;
+		next = nextIn;
+	}
 	public void setImg(Image imgIn)
 	{
 		img = imgIn;

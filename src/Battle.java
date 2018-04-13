@@ -242,9 +242,9 @@ public class Battle extends JFrame implements ActionListener,Runnable
         if (playerTurn==true) {
             mana=mana-5;
             if (myMonster.weakness.equals("ice"))
-                myMonster.enemHealth=-battlePlayer.intel*2;
+                myMonster.enemHealth-=battlePlayer.intel*2;
             else {
-                myMonster.enemHealth=-battlePlayer.intel;
+                myMonster.enemHealth-=battlePlayer.intel;
             }
         }
         //If the enemy is weak against ice, it will do double the damage.
@@ -257,9 +257,9 @@ public class Battle extends JFrame implements ActionListener,Runnable
             mana=mana-5;
             //If the enemy is weak against fire, it will do double the damage.
             if (myMonster.weakness.equals("fire"))
-                myMonster.enemHealth=-battlePlayer.intel*2;
+                myMonster.enemHealth-=battlePlayer.intel*2;
             else{
-                myMonster.enemHealth=-battlePlayer.intel;
+                myMonster.enemHealth-=battlePlayer.intel;
             }
         }
         playerTurn=false;
