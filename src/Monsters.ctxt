@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=MonsterStats\ createRat()
+comment1.params=
+comment1.target=MonsterStats\ createGoblin()
+comment2.params=
+comment2.target=MonsterStats\ createOctopus()
+comment3.params=
+comment3.target=MonsterStats\ createDragon()
+numComments=4
