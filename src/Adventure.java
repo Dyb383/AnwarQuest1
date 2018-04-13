@@ -233,7 +233,8 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
                 if (playerDirection.equals ("left")){
                     myPlayer.x+=10; }
                 if (playerDirection.equals ("right")){
-                    myPlayer.x-=10; }
+                    myPlayer.x-=10; 
+                    }
             }
             
             if (battlePlaces.isCollisionNext(myPlayer)==true) {
