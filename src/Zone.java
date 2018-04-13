@@ -10,6 +10,7 @@ public class Zone {
 	
 	public void Zone(Image imgIn, int defx, int defy, Zone nextIn)
 	{
+		
 		img =  imgIn;
 		defaultx=defx;
 		defaulty=defy;
