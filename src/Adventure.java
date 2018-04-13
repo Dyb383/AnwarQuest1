@@ -144,7 +144,7 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
             img = javax.imageio.ImageIO.read(this.getClass().getResource("PICS/title.png"));}
         catch (Exception e){}}
 
-    public void drawBackground1(Graphics g) {
+    public void drawZone(Graphics g) {
         try{
             img = javax.imageio.ImageIO.read(this.getClass().getResource("PICS/Backgroundnew.png"));}
         catch (Exception e){}}
@@ -253,7 +253,7 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
                 myPlayer.drawPlayerLeft(offScreenGraphics); }
             if (playerDirection.equals ("right")){
                 myPlayer.drawPlayerRight(offScreenGraphics); }
-            drawBackground1(offScreenGraphics);
+            drawZone(offScreenGraphics);
         }
         if (classScreen==true) {
             drawClassScreen(offScreenGraphics); }
