@@ -1,3 +1,5 @@
+import com.sun.javaws.util.JfxHelper;
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -118,9 +120,17 @@ public class HubWorld extends JFrame implements ActionListener, Runnable {
     }
 
     private void playerQuest(Player myPlayer){
-        setVisible(false);
-        dispose();
-        stop();
+        final JFrame parent = new JFrame();
+        if(myPlayer.quest == 0){
+            String quest = JOptionPane.showInputDialog(parent, "Hello new adventurer! I have a task that I need you to take care of. \n" +
+                    "Go win two battles and come back to me. Do this and you will have proven your worth!", null);
+        }
+        else{
+            setVisible(false);
+            dispose();
+            stop();
+        }
+
     }
 
 

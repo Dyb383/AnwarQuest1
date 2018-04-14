@@ -5,7 +5,7 @@ public class Zone {
 	private Image img;
 	private int defaultx;
 	private int defaulty;
-	private ArrayList<Place> locations = new ArrayList<Place>();
+	private ArrayList<Places> locations = new ArrayList<Places>();
 	private Zone next;
 	
 	public Zone(Image imgIn, int defx, int defy, Zone nextIn)
@@ -20,7 +20,7 @@ public class Zone {
 	{
 		img = imgIn;
 	}
-	public void addLocation(Place pIn)
+	public void addLocation(Places pIn)
 	{
 		locations.add(pIn);
 	}
@@ -40,7 +40,7 @@ public class Zone {
 	{
 		return img;
 	}
-	public ArrayList<Place> getLocations()
+	public ArrayList<Places> getLocations()
 	{
 		return locations;
 	}
