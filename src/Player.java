@@ -17,6 +17,7 @@ public class Player
     int maxMana = intel*5;
     int currentHP = maxHP;
     int currentMana = maxMana;
+    int quest = 0;
 
     int x=400;
     int y=400;
@@ -73,8 +74,10 @@ public class Player
                 intel=intel+1;
                 endur=endur+7;
                 xp=0;
-                currentHP = endur;
-                currentMana = intel*5;
+                maxHP = endur;
+                maxMana = intel*5;
+                currentHP = maxHP;
+                currentMana = maxMana;
             }
             if (playerClass==(2)){
                 level=level+1;
@@ -82,8 +85,10 @@ public class Player
                 intel=intel+4;
                 endur=endur+5;
                 xp=0;
-                currentHP = endur;
-                currentMana = intel*5;
+                maxHP = endur;
+                maxMana = intel*5;
+                currentHP = maxHP;
+                currentMana = maxMana;
             }
         }
     }
