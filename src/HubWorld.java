@@ -1,5 +1,3 @@
-import com.sun.javaws.util.JfxHelper;
-
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;

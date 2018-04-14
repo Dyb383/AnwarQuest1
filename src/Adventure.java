@@ -166,7 +166,7 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
         //Starting crap
         Graphics g = getGraphics();
         Graphics offScreenGraphics=offScreen.getGraphics();
-        offScreenGraphics.drawImage(img,0,0,null);
+        offScreenGraphics.drawImage(img,0,15,null);
         //Title/Class/Beginning Background
         if (gameStarted==false && classScreen==false) {
             drawTitle(offScreenGraphics);
