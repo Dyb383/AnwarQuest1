@@ -198,7 +198,7 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
                     myPlayer.x-=10; }
             }
             if (battlePlaces.isCollision2(myPlayer)==true) {
-                Battle battleDragon = new Battle("Dragon", myPlayer);
+                 HubWorld hub = new HubWorld(myPlayer);
                 //battleDragon.setPlayer(myPlayer);
                 if (playerDirection.equals ("down")){
                     myPlayer.y-=10; }
