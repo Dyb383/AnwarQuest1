@@ -17,6 +17,7 @@ public class Shop extends JFrame implements ActionListener,Runnable {
     Button str = new Button ("New Sword: $200");
     Button armor = new Button ("New Armour: $200");
     Button intel = new Button ("Spell Books: $200");
+    Button leave = new Button("LEAVE");
     
 	public void init() {                
 		//setting the layout of the battle window
@@ -26,11 +27,13 @@ public class Shop extends JFrame implements ActionListener,Runnable {
 		buttonPanel.add(str, BorderLayout.EAST);
         buttonPanel.add(armor, BorderLayout.EAST);
         buttonPanel.add(intel, BorderLayout.EAST);
+        buttonPanel.add(leave, BorderLayout.EAST);
         offScreen = new BufferedImage(500,500, BufferedImage.TYPE_INT_RGB);
         add(buttonPanel, BorderLayout.EAST);
         str.addActionListener(this);
         armor.addActionListener(this);
         intel.addActionListener(this);
+        leave.addActionListener(this);
 	}
 	
 	public Shop(Player myPlayer) {
@@ -54,43 +57,53 @@ public class Shop extends JFrame implements ActionListener,Runnable {
         if (source==intel) {
             intelButton();
         }
+        if (source==leave){
+            setVisible(false);
+            dispose();
+            stop();
+        }
         //now have if statements seeing finding out where the action occured
     }
 
 	private void intelButton() {
 		// TODO Auto-generated method stub
+        final JFrame parent = new JFrame();
         Graphics offScreenGraphics=offScreen.getGraphics();
 		if (shopPlayer.gold>=200){
 			shopPlayer.gold=shopPlayer.gold-200;
 			shopPlayer.intel=shopPlayer.intel*2;
 		}
 		else {
-			drawText(offScreenGraphics, "You Don't Have Enough Money!");
+            String quest1 = JOptionPane.showInputDialog(parent, "You do not have enough money for an Intelligence upgrade!", null);
 		}
 	}
 
 	private void armorButton() {
 		// TODO Auto-generated method stub
+        final JFrame parent = new JFrame();
         Graphics offScreenGraphics=offScreen.getGraphics();
 		if (shopPlayer.gold>=200){
 			shopPlayer.gold=shopPlayer.gold-200;
 			shopPlayer.endur=shopPlayer.endur*2;
 		}
 		else {
-			drawText(offScreenGraphics, "You Don't Have Enough Money!");
-		}
+            String quest1 = JOptionPane.showInputDialog(parent, "You do not have enough money for an Armor upgrade!", null);
+
+        }
 	}
 
 	private void strButton() {
 		// TODO Auto-generated method stub
+        final JFrame parent = new JFrame();
         Graphics offScreenGraphics=offScreen.getGraphics();
 		if (shopPlayer.gold>=200){
 			shopPlayer.gold=shopPlayer.gold-200;
 			shopPlayer.str=shopPlayer.str*2;
 		}
 		else {
-			drawText(offScreenGraphics, "You Don't Have Enough Money!");
-		}
+            String quest1 = JOptionPane.showInputDialog(parent, "You do not have enough money for a Strength upgrade!", null);
+
+        }
 	}
 
 	public void setPlayer(Player myPlayer) {
