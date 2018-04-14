@@ -54,10 +54,7 @@ public class Battle extends JFrame implements ActionListener,Runnable
         fireButton.addActionListener(this);
         iceButton.addActionListener(this);
         offScreen = new BufferedImage(500,500, BufferedImage.TYPE_INT_RGB);
-
         add(buttonPanel, BorderLayout.EAST);
-
-
     }
 
     public void paint (Graphics g)
@@ -128,27 +125,24 @@ public class Battle extends JFrame implements ActionListener,Runnable
         int y=e.getY();
     }
 
-    public Battle (String monsterName, Player player){
+    public Battle (String monsterName, Player p){
         if (monsterName.equals("Rat")){
             monsterPic=1;
-            myMonster=battleMonsters.createRat();
+            myMonster=battleMonsters.createRat(p);
         }
         if (monsterName.equals("Goblin")){
             monsterPic=2;
-            myMonster=battleMonsters.createGoblin();
-            //monsterPic.equals("Goblin");
+            myMonster=battleMonsters.createGoblin(p);
         }
         if (monsterName.equals("Octopus")){
             monsterPic=3;
-            myMonster=battleMonsters.createOctopus();
-            //monsterPic.equals("Octopus");
+            myMonster=battleMonsters.createOctopus(p);
         }
         if (monsterName.equals("Dragon")){
             monsterPic=4;
-            myMonster=battleMonsters.createDragon();
-            //monsterPic.equals("Dragon");
+            myMonster=battleMonsters.createDragon(p);
         }
-        setPlayer(player);
+        setPlayer(p);
         init();
         
         setSize(588,505);
