@@ -13,6 +13,8 @@ public class Player
     int intel=5;
     int endur=25;
     int gold=0;
+    int maxHP = endur+(level*5);
+    int maxMana = ((intel*5)+(level*5));
 
     int x=400;
     int y=400;

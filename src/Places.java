@@ -84,5 +84,15 @@ public class Places
     	else
     		return false;
     }
+    
+    public boolean isCollisionShop(Player myPlayer)//collision for the shop
+    {
+    	int playerX=myPlayer.x;
+    	int playerY=myPlayer.y;
+    	if (myPlayer.x>=410 && myPlayer.x<=429 && myPlayer.y>=200 && myPlayer.y<=220)
+    		return true;
+    	else
+    		return false;
+    }
 
 }

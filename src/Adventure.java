@@ -235,6 +235,20 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
                     }
             }
             
+            if (battlePlaces.isCollisionShop(myPlayer)==true) {
+                Shop shop = new Shop(myPlayer);
+                //battleOctopus.setPlayer(myPlayer);
+                if (playerDirection.equals ("down")){
+                    myPlayer.y-=10; }
+                if (playerDirection.equals ("up")){
+                    myPlayer.y+=10; }
+                if (playerDirection.equals ("left")){
+                    myPlayer.x+=10; }
+                if (playerDirection.equals ("right")){
+                    myPlayer.x-=10; 
+                    }
+            }
+            
             if (battlePlaces.isCollisionNext(myPlayer)==true) {
             	if (checkForNewGame()==false){
             		//in here will be where we paint the second level
@@ -243,6 +257,10 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
             	else if (checkForNewGame()==true){
             		offScreenGraphics.drawString("Player must level up before continuing.", 200, 400);
             	}
+            }
+            
+            if (battlePlaces.isCollisionShop(myPlayer)==true) {
+            	Shop shop = new Shop(myPlayer);
             }
             
             //PLAYER MOVING IN A DIRECTION
