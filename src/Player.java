@@ -13,8 +13,10 @@ public class Player
     int intel=5;
     int endur=25;
     int gold=0;
-    int maxHP = endur+(level*5);
-    int maxMana = ((intel*5)+(level*5));
+    int maxHP = endur;
+    int maxMana = intel*5;
+    int currentHP = maxHP;
+    int currentMana = maxMana;
 
     int x=400;
     int y=400;
@@ -71,6 +73,8 @@ public class Player
                 intel=intel+1;
                 endur=endur+7;
                 xp=0;
+                currentHP = endur;
+                currentMana = intel*5;
             }
             if (playerClass==(2)){
                 level=level+1;
@@ -78,6 +82,8 @@ public class Player
                 intel=intel+4;
                 endur=endur+5;
                 xp=0;
+                currentHP = endur;
+                currentMana = intel*5;
             }
         }
     }

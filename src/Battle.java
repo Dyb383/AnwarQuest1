@@ -35,8 +35,8 @@ public class Battle extends JFrame implements ActionListener,Runnable
     int timesDefend=0;
     public void init()
     {                
-    	health=battlePlayer.endur;
-        mana=battlePlayer.intel*5;
+/*    	health=battlePlayer.currentHP;
+        mana=battlePlayer.currentMana;*/
     	//setting the layout of the battle window
         Container screen = getContentPane();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
@@ -171,11 +171,11 @@ public class Battle extends JFrame implements ActionListener,Runnable
         if (playerTurn==false) {
             //We'll keep it simple and make it just do the amount of damage the enemy's strength is every time.
             if (myMonster.level<=2){
-                health=health-myMonster.enemStr;
+                battlePlayer.currentHP-=myMonster.enemStr;;
             }
             if (myMonster.level>2) {
                 myMonster.enemHealth=myMonster.enemHealth+10;
-                health=health-myMonster.enemStr;}
+                battlePlayer.currentHP-=myMonster.enemStr;}
         }
         playerTurn=true;
     }
@@ -193,9 +193,12 @@ public class Battle extends JFrame implements ActionListener,Runnable
     }
 
     public void playerLose() { 
-        if (health<=0){
+        if (battlePlayer.currentHP<=0){
             battlePlayer.xp=0;
             timesDefend=0;
+            battlePlayer.currentHP=battlePlayer.maxHP;
+            battlePlayer.x = 400;
+            battlePlayer.y = 400;
             setVisible(false);
             dispose();
             stop();
@@ -223,19 +226,26 @@ public class Battle extends JFrame implements ActionListener,Runnable
     }
 
     public void useHPotion() {
-        //health +5
+        //health +60%
         if (playerTurn==true && numOfHPotions>0) {
-            health=health+5;
-            numOfHPotions=numOfHPotions-1;
+        	if(battlePlayer.currentHP+(battlePlayer.maxHP*.6)<battlePlayer.maxHP)
+        		battlePlayer.currentHP+=(battlePlayer.maxHP*.6);
+        	else
+        		battlePlayer.currentHP=battlePlayer.maxHP;
+        	numOfHPotions=numOfHPotions-1;
         }
         playerTurn=false;
         enemyMove();
     }
 
     public void useMPotion() {
-        //mana +5
+        //mana +60%
         if (playerTurn==true && numOfMPotions>0) {
-            mana=mana+5;
+            if(battlePlayer.currentMana+(battlePlayer.maxMana*.6)<battlePlayer.maxMana) {
+            	battlePlayer.currentMana+=(battlePlayer.maxMana*.6);
+            }
+            else
+            	battlePlayer.currentMana=battlePlayer.maxMana;
             numOfMPotions=numOfMPotions-1;
         }
         playerTurn=false;
@@ -244,7 +254,7 @@ public class Battle extends JFrame implements ActionListener,Runnable
 
     public void playerIce() {
         if (playerTurn==true) {
-            mana=mana-5;
+            battlePlayer.currentMana-=5;
             if (myMonster.weakness.equals("ice"))
                 myMonster.enemHealth-=battlePlayer.intel*2;
             else {
@@ -258,7 +268,7 @@ public class Battle extends JFrame implements ActionListener,Runnable
 
     public void playerFire() {
         if (playerTurn==true) {
-            mana=mana-5;
+            battlePlayer.currentMana-=5;
             //If the enemy is weak against fire, it will do double the damage.
             if (myMonster.weakness.equals("fire"))
                 myMonster.enemHealth-=battlePlayer.intel*2;
@@ -354,11 +364,11 @@ public class Battle extends JFrame implements ActionListener,Runnable
         offScreenGraphics.setColor(Color.white);
         //First Row
         offScreenGraphics.drawString("Player Lvl: " + battlePlayer.level, 30, 410);
-        offScreenGraphics.drawString("Player Mana: "+ mana, 205,410);
+        offScreenGraphics.drawString("Player Mana: "+ battlePlayer.currentMana, 205,410);
         offScreenGraphics.drawString("Enemy Health: "+ myMonster.enemHealth, 395,410);
         //Second Row
         offScreenGraphics.drawString("Player exp: "+ battlePlayer.xp, 30,435);
-        offScreenGraphics.drawString("Player Health: "+ health, 205,435);
+        offScreenGraphics.drawString("Player Health: "+ battlePlayer.currentHP, 205,435);
         //Third Row
         offScreenGraphics.drawString("Player Str: "+ battlePlayer.str, 30,460);
         offScreenGraphics.drawString("Player Potions: "+ numOfHPotions, 205,460);

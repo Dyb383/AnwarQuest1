@@ -182,8 +182,8 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
             offScreenGraphics.drawString("Player Str: "+ myPlayer.str, 150,480);
             offScreenGraphics.drawString("Player Int: "+ myPlayer.intel, 150,495);
             //Third Column
-            offScreenGraphics.drawString("Player Health: "+ myPlayer.endur, 250,480);
-            offScreenGraphics.drawString("Player Mana: "+ myPlayer.intel*5, 250,495);
+            offScreenGraphics.drawString("Player Health: "+ myPlayer.currentHP+" / "+myPlayer.endur, 250,480);
+            offScreenGraphics.drawString("Player Mana: "+ myPlayer.currentMana + " / "+myPlayer.intel*5, 250,495);
             //TRIGGERING BATTLES
             if (battlePlaces.isCollision1(myPlayer)==true) {
                 Battle battleRat = new Battle("Rat", myPlayer);
