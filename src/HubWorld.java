@@ -1,8 +1,10 @@
+
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.image.*;
-import java.awt.GridBagLayout.*;
+
 
 public class HubWorld extends JFrame implements ActionListener, Runnable {
     Image img;
@@ -119,9 +121,20 @@ public class HubWorld extends JFrame implements ActionListener, Runnable {
 
     private void playerQuest(Player myPlayer){
         final JFrame parent = new JFrame();
+        if (myPlayer.quest == 2){
+            String quest1 = JOptionPane.showInputDialog(parent, "DAMN SON WHERE'D YOU FIND THIS??", null);
+            myPlayer.quest = 3;
+        }
+        if (myPlayer.quest == 1){
+            String quest1 = JOptionPane.showInputDialog(parent, "Well, well, well, maybe you are not so useless after all! \n" +
+                    "I need you to go and defeat an evil wizard who goes by the name Anwar. If you do this you would be the hero of this whole" +
+                    " 500x500 pixel world!", null);
+            myPlayer.quest = 2;
+        }
         if(myPlayer.quest == 0){
             String quest = JOptionPane.showInputDialog(parent, "Hello new adventurer! I have a task that I need you to take care of. \n" +
                     "Go win two battles and come back to me. Do this and you will have proven your worth!", null);
+            myPlayer.quest = 1;
         }
         else{
             setVisible(false);
