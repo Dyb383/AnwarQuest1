@@ -106,7 +106,7 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
             }
             if (theCode == KeyEvent.VK_3)
             {
-                Battle battleRat = new Battle("Rat");
+                Battle battleRat = new Battle("Rat", myPlayer);
                 battleRat.setPlayer(myPlayer);
             }
         }
@@ -186,8 +186,8 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
             offScreenGraphics.drawString("Player Mana: "+ myPlayer.intel*5, 250,495);
             //TRIGGERING BATTLES
             if (battlePlaces.isCollision1(myPlayer)==true) {
-                Battle battleRat = new Battle("Rat");
-                battleRat.setPlayer(myPlayer);
+                Battle battleRat = new Battle("Rat", myPlayer);
+                //battleRat.setPlayer(myPlayer);
                 if (playerDirection.equals ("down")){
                     myPlayer.y-=10; }
                 if (playerDirection.equals ("up")){
@@ -198,8 +198,8 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
                     myPlayer.x-=10; }
             }
             if (battlePlaces.isCollision2(myPlayer)==true) {
-                Battle battleDragon = new Battle("Dragon");
-                battleDragon.setPlayer(myPlayer);
+                Battle battleDragon = new Battle("Dragon", myPlayer);
+                //battleDragon.setPlayer(myPlayer);
                 if (playerDirection.equals ("down")){
                     myPlayer.y-=10; }
                 if (playerDirection.equals ("up")){
@@ -210,8 +210,8 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
                     myPlayer.x-=10; }
             }
             if (battlePlaces.isCollision3(myPlayer)==true) {
-                Battle battleGoblin = new Battle("Goblin");
-                battleGoblin.setPlayer(myPlayer);
+                Battle battleGoblin = new Battle("Goblin", myPlayer);
+                //battleGoblin.setPlayer(myPlayer);
                 if (playerDirection.equals ("down")){
                     myPlayer.y-=10; }
                 if (playerDirection.equals ("up")){
@@ -222,8 +222,8 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
                     myPlayer.x-=10; }
             }
             if (battlePlaces.isCollision4(myPlayer)==true) {
-                Battle battleOctopus = new Battle("Octopus");
-                battleOctopus.setPlayer(myPlayer);
+                Battle battleOctopus = new Battle("Octopus", myPlayer);
+                //battleOctopus.setPlayer(myPlayer);
                 if (playerDirection.equals ("down")){
                     myPlayer.y-=10; }
                 if (playerDirection.equals ("up")){

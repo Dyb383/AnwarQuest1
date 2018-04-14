@@ -16,8 +16,8 @@ public class Battle extends JFrame implements ActionListener,Runnable
     int numOfHPotions=5;
     int numOfMPotions=5;
     //Gets stats from player to the battle
-    int health;
-    int mana;
+    int health=battlePlayer.endur;
+    int mana=battlePlayer.intel*5;
     //Creates the monster you will fight in battle
     Monsters battleMonsters=new Monsters();
     MonsterStats myMonster;
@@ -34,7 +34,9 @@ public class Battle extends JFrame implements ActionListener,Runnable
     int monsterPic=0;
     int timesDefend=0;
     public void init()
-    {        
+    {                
+    	health=battlePlayer.endur;
+        mana=battlePlayer.intel*5;
     	//setting the layout of the battle window
         Container screen = getContentPane();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
@@ -55,8 +57,7 @@ public class Battle extends JFrame implements ActionListener,Runnable
 
         add(buttonPanel, BorderLayout.EAST);
 
-        health=battlePlayer.endur;
-        mana=battlePlayer.intel*5;
+
     }
 
     public void paint (Graphics g)
@@ -127,7 +128,7 @@ public class Battle extends JFrame implements ActionListener,Runnable
         int y=e.getY();
     }
 
-    public Battle (String monsterName){
+    public Battle (String monsterName, Player player){
         if (monsterName.equals("Rat")){
             monsterPic=1;
             myMonster=battleMonsters.createRat();
@@ -147,7 +148,9 @@ public class Battle extends JFrame implements ActionListener,Runnable
             myMonster=battleMonsters.createDragon();
             //monsterPic.equals("Dragon");
         }
+        setPlayer(player);
         init();
+        
         setSize(588,505);
         //setExtendedState (JFrame.MAXIMIZED_BOTH);  //this sets it to maximum size
         // or set the size you want p.setSize(520,520);

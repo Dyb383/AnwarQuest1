@@ -14,8 +14,8 @@ public class Player
     int endur=25;
     int gold=0;
 
-    int x=250;
-    int y=250;
+    int x=400;
+    int y=400;
 
     int playerClass=0;
 

@@ -10,10 +10,10 @@ public class Places
     Player myPlayer = new Player();
     int x1=100;
     int y1=100;
-    int x2=300;
-    int y2=300;
+    int x2=200;
+    int y2=200;
     int x3=250;
-    int y3=150;
+    int y3=50;
     int x4=100;
     int y4=430;
     Image img1;
