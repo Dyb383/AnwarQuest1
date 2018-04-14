@@ -2,6 +2,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.image.*;
+import java.util.ArrayList;
 
 /**
  * Overworld class. Has sprites and our character running around creating events for battle.
@@ -9,8 +10,10 @@ import java.awt.image.*;
 public class Adventure extends JFrame implements ActionListener,KeyListener,Runnable
 {
     Image img;
+    int zoneCount=0;
+    ArrayList<Zone> zoneArr = populate();
     BufferedImage offScreen;
-    Places battlePlaces = new Places();
+    Place battlePlace = new Place();
     //Keeps track of how far the player is
     int eventsActivated=0;
     Player myPlayer = new Player();
@@ -21,6 +24,7 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
     public static void main(String[] args) {
         Adventure p = new Adventure();
         p.init();
+
         p.setSize(510,510);
         //p.setExtendedState (JFrame.MAXIMIZED_BOTH);  //this sets it to maximum size
         // or set the size you want p.setSize(520,520);
@@ -145,9 +149,8 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
         catch (Exception e){}}
 
     public void drawZone(Graphics g) {
-        try{
-            img = javax.imageio.ImageIO.read(this.getClass().getResource("PICS/Backgroundnew.png"));}
-        catch (Exception e){}}
+            img = zoneArr.get(zoneCount).getImage();
+            }
 
     public void drawClassScreen(Graphics g) {
         try{
@@ -162,17 +165,23 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
     		return false;
     }
     
-    public void update(){
+    public void update(Zone z){
         //Starting crap
+        Zone zwork = zoneArr.get(zoneCount);
+        ArrayList<Place> placeW = zwork.getLocations();
         Graphics g = getGraphics();
         Graphics offScreenGraphics=offScreen.getGraphics();
-        offScreenGraphics.drawImage(img,0,15,null);
+        offScreenGraphics.drawImage(img,0,0,null);
         //Title/Class/Beginning Background
         if (gameStarted==false && classScreen==false) {
             drawTitle(offScreenGraphics);
             }
         if (gameStarted==true) {  
-            battlePlaces.drawPlaces(offScreenGraphics);
+            for(int i=0; i<zwork.getLocations().size(); i++) {
+                Place pW = placeW.get(i); 
+            	pW.drawPlace(offScreenGraphics);
+            }
+
             //STATS
             //First Column
             offScreenGraphics.drawString("Gold: " + myPlayer.gold, 20, 465);
@@ -185,9 +194,24 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
             offScreenGraphics.drawString("Player Health: "+ myPlayer.currentHP+" / "+myPlayer.endur, 250,480);
             offScreenGraphics.drawString("Player Mana: "+ myPlayer.currentMana + " / "+myPlayer.intel*5, 250,495);
             //TRIGGERING BATTLES
-            if (battlePlaces.isCollision1(myPlayer)==true) {
-                Battle battleRat = new Battle("Rat", myPlayer);
-                //battleRat.setPlayer(myPlayer);
+
+            
+            for(int i=0; i<zwork.getLocations().size(); i++) {
+	            if (battlePlace.isCollision(myPlayer, placeW.get(i))==true) {
+	                if(placeW.get(i).type == 'c')
+	                {
+	                	Battle battle = new Battle(placeW.get(i).monster, myPlayer);
+	                }
+	                if(placeW.get(i).type == 'h')
+	                {
+	                	HubWorld hub = new HubWorld(myPlayer);
+	                }
+	                if(placeW.get(i).type == 's')
+	                {
+	                    Shop shop = new Shop(myPlayer);
+	                }
+                
+                	//battleRat.setPlayer(myPlayer);
                 if (playerDirection.equals ("down")){
                     myPlayer.y-=10; }
                 if (playerDirection.equals ("up")){
@@ -196,8 +220,9 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
                     myPlayer.x+=10; }
                 if (playerDirection.equals ("right")){
                     myPlayer.x-=10; }
-            }
-            if (battlePlaces.isCollision2(myPlayer)==true) {
+	            }
+	        }
+            /*if (battlePlaces.isCollision2(myPlayer)==true) {
                  HubWorld hub = new HubWorld(myPlayer);
                 //battleDragon.setPlayer(myPlayer);
                 if (playerDirection.equals ("down")){
@@ -261,7 +286,7 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
             
             if (battlePlaces.isCollisionShop(myPlayer)==true) {
             	Shop shop = new Shop(myPlayer);
-            }
+            }*/
             
             //PLAYER MOVING IN A DIRECTION
             if (playerDirection.equals ("down")){
@@ -281,6 +306,36 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
 
         //Ending crap
         g.drawImage(offScreen,0,0,this); 
+    }
+    public static ArrayList<Zone>  populate()
+    {
+    	ArrayList<Zone> zOut = new ArrayList<Zone>();
+    	Zone z1 = new Zone();
+    	Zone z2 = new Zone();
+    	
+    	Place z1P1 = new Place(100, 100, 'c');
+    	Place z1P2 = new Place(200,200,'h');
+    	Place z1P3 = new Place(250,50,'c');
+    	Place z1P4 = new Place(100,430,'c');
+    	Place z1P5 = new Place (429,220,'s');
+    	z1P1.setImage("Cave.png");
+    	z1P2.setImage("Castle.png");
+    	z1P3.setImage("Tent.png");
+    	z1P4.setImage("Port.png");
+    	z1P1.setMonster("Rat");
+    	z1P3.setMonster("Goblin");
+    	z1P4.setMonster("Octopus");
+    	z1.addLocation(z1P1);
+    	z1.addLocation(z1P2);
+    	z1.addLocation(z1P3);
+    	z1.addLocation(z1P4);
+    	z1.addLocation(z1P5);
+    	
+    	z1.setImage("backgroundnew.png");
+    	zOut.add(z1);
+    	return zOut;
+
+    	
     }
     
     
@@ -313,7 +368,7 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
         while (Thread.currentThread() == animator)
         {
             // Display the next frame of animation.
-            update();
+            update(zoneArr.get(zoneCount));
             try
             {
                 tm += delay;

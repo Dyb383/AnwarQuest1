@@ -5,9 +5,13 @@ public class Zone {
 	private Image img;
 	private int defaultx;
 	private int defaulty;
-	private ArrayList<Places> locations = new ArrayList<Places>();
+	private ArrayList<Place> locations = new ArrayList<Place>();
 	private Zone next;
-	
+	public Zone()
+	{
+		defaultx=400;
+		defaulty=400;
+	}
 	public Zone(Image imgIn, int defx, int defy, Zone nextIn)
 	{
 		
@@ -16,11 +20,13 @@ public class Zone {
 		defaulty=defy;
 		next = nextIn;
 	}
-	public void setImg(Image imgIn)
+	public void setImage(String image)
 	{
-		img = imgIn;
-	}
-	public void addLocation(Places pIn)
+        try{
+            img = javax.imageio.ImageIO.read(this.getClass().getResource("PICS/"+image));}
+        catch (Exception e){}
+    }
+	public void addLocation(Place pIn)
 	{
 		locations.add(pIn);
 	}
@@ -40,7 +46,7 @@ public class Zone {
 	{
 		return img;
 	}
-	public ArrayList<Places> getLocations()
+	public ArrayList<Place> getLocations()
 	{
 		return locations;
 	}
@@ -55,5 +61,8 @@ public class Zone {
 	public Zone getNext()
 	{
 		return next;
+	}
+	public Image getImage() {
+		return img; 
 	}
 }
