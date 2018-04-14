@@ -17,27 +17,20 @@ public class Shop extends JFrame implements ActionListener,Runnable {
     Button str = new Button ("New Sword: $200");
     Button armor = new Button ("New Armour: $200");
     Button intel = new Button ("Spell Books: $200");
-    Button quest = new Button ("Quest");
-    Button rest = new Button ("Rest");
     
 	public void init() {                
 		//setting the layout of the battle window
 		Container screen = getContentPane();
-
 	    Panel buttonPanel = new Panel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
 		buttonPanel.add(str, BorderLayout.EAST);
         buttonPanel.add(armor, BorderLayout.EAST);
         buttonPanel.add(intel, BorderLayout.EAST);
-        buttonPanel.add(quest, BorderLayout.EAST);
-        buttonPanel.add(rest, BorderLayout.EAST);
         offScreen = new BufferedImage(500,500, BufferedImage.TYPE_INT_RGB);
         add(buttonPanel, BorderLayout.EAST);
         str.addActionListener(this);
         armor.addActionListener(this);
         intel.addActionListener(this);
-        quest.addActionListener(this);
-        rest.addActionListener(this);
 	}
 	
 	public Shop(Player myPlayer) {
@@ -61,56 +54,42 @@ public class Shop extends JFrame implements ActionListener,Runnable {
         if (source==intel) {
             intelButton();
         }
-        if (source==quest) {
-            quest();
-        }
-        if (source==rest) {
-            rest();
-        }
         //now have if statements seeing finding out where the action occured
     }
-	
-    private void rest() {
-		// TODO Auto-generated method stub
-		shopPlayer.endur = shopPlayer.maxHP;
-		//add mana replenish after mana is persistant
-	}
-
-	private void quest() {
-		// TODO Auto-generated method stub
-		//method needs to print out a quest for the player
-	}
 
 	private void intelButton() {
 		// TODO Auto-generated method stub
+        Graphics offScreenGraphics=offScreen.getGraphics();
 		if (shopPlayer.gold>=200){
 			shopPlayer.gold=shopPlayer.gold-200;
 			shopPlayer.intel=shopPlayer.intel*2;
 		}
 		else {
-			//print you dont have enough money
+			drawText(offScreenGraphics, "You Don't Have Enough Money!");
 		}
 	}
 
 	private void armorButton() {
 		// TODO Auto-generated method stub
+        Graphics offScreenGraphics=offScreen.getGraphics();
 		if (shopPlayer.gold>=200){
 			shopPlayer.gold=shopPlayer.gold-200;
 			shopPlayer.endur=shopPlayer.endur*2;
 		}
 		else {
-			//print you dont have enough money
+			drawText(offScreenGraphics, "You Don't Have Enough Money!");
 		}
 	}
 
 	private void strButton() {
 		// TODO Auto-generated method stub
+        Graphics offScreenGraphics=offScreen.getGraphics();
 		if (shopPlayer.gold>=200){
 			shopPlayer.gold=shopPlayer.gold-200;
 			shopPlayer.str=shopPlayer.str*2;
 		}
 		else {
-			//print you dont have enough money
+			drawText(offScreenGraphics, "You Don't Have Enough Money!");
 		}
 	}
 
@@ -126,6 +105,16 @@ public class Shop extends JFrame implements ActionListener,Runnable {
             setVisible(false);
             dispose();
             stop();
+    }
+	
+    public void drawText(Graphics g, String t) {
+        try
+        {
+            g=offScreen.getGraphics();
+            g.setColor(Color.white);
+            g.drawString(t, 15, 250);
+        }
+        catch (Exception e){}
     }
 	
 	
@@ -145,10 +134,11 @@ public class Shop extends JFrame implements ActionListener,Runnable {
         Graphics g = getGraphics();
         Graphics offScreenGraphics=offScreen.getGraphics();
         offScreenGraphics.drawImage(img,0,0,null);
+        String t = new String();
 
         //Drawing methods
         setPlayer(shopPlayer);
-        
+        drawText(g, t);
         drawShopScreen(g);
         //shopStop();
 
