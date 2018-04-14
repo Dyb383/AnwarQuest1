@@ -5,10 +5,10 @@ public class Zone {
 	private Image img;
 	private int defaultx;
 	private int defaulty;
-	private ArrayList<Integer> locations = new ArrayList<Integer>();
+	private ArrayList<Place> locations = new ArrayList<Place>();
 	private Zone next;
 	
-	public void Zone(Image imgIn, int defx, int defy, Zone nextIn)
+	public Zone(Image imgIn, int defx, int defy, Zone nextIn)
 	{
 		
 		img =  imgIn;
@@ -20,10 +20,9 @@ public class Zone {
 	{
 		img = imgIn;
 	}
-	public void addLocation(int x, int y)
+	public void addLocation(Place pIn)
 	{
-		locations.add(x);
-		locations.add(y);
+		locations.add(pIn);
 	}
 	public void setDefaultX(int x)
 	{
@@ -41,7 +40,7 @@ public class Zone {
 	{
 		return img;
 	}
-	public ArrayList<Integer> getLocations()
+	public ArrayList<Place> getLocations()
 	{
 		return locations;
 	}

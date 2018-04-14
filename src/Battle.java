@@ -196,7 +196,8 @@ public class Battle extends JFrame implements ActionListener,Runnable
         if (battlePlayer.currentHP<=0){
             battlePlayer.xp=0;
             timesDefend=0;
-            battlePlayer.currentHP=battlePlayer.maxHP;
+            battlePlayer.currentHP=battlePlayer.endur;
+            battlePlayer.currentMana=battlePlayer.intel*5;
             battlePlayer.x = 400;
             battlePlayer.y = 400;
             setVisible(false);
@@ -254,11 +255,13 @@ public class Battle extends JFrame implements ActionListener,Runnable
 
     public void playerIce() {
         if (playerTurn==true) {
-            battlePlayer.currentMana-=5;
-            if (myMonster.weakness.equals("ice"))
-                myMonster.enemHealth-=battlePlayer.intel*2;
-            else {
-                myMonster.enemHealth-=battlePlayer.intel;
+        	if(battlePlayer.currentMana-5>=0) {
+	            battlePlayer.currentMana-=5;
+	            if (myMonster.weakness.equals("ice"))
+	                myMonster.enemHealth-=battlePlayer.intel*2;
+	            else {
+	                myMonster.enemHealth-=battlePlayer.intel;
+	            }
             }
         }
         //If the enemy is weak against ice, it will do double the damage.
@@ -268,13 +271,15 @@ public class Battle extends JFrame implements ActionListener,Runnable
 
     public void playerFire() {
         if (playerTurn==true) {
-            battlePlayer.currentMana-=5;
-            //If the enemy is weak against fire, it will do double the damage.
-            if (myMonster.weakness.equals("fire"))
-                myMonster.enemHealth-=battlePlayer.intel*2;
-            else{
-                myMonster.enemHealth-=battlePlayer.intel;
-            }
+        	if(battlePlayer.currentMana-5>=0) {
+	            battlePlayer.currentMana-=5;
+	            //If the enemy is weak against fire, it will do double the damage.
+	            if (myMonster.weakness.equals("fire"))
+	                myMonster.enemHealth-=battlePlayer.intel*2;
+	            else{
+	                myMonster.enemHealth-=battlePlayer.intel;
+	            }
+        	}
         }
         playerTurn=false;
         enemyMove();
