@@ -13,6 +13,7 @@ public class Monsters
         monsterRat.level=1;
         monsterRat.weakness="fire";
         monsterRat.AIdifficulty=1;
+        monsterRat.goldGiven=5;
         return monsterRat;
     }
 
@@ -25,6 +26,7 @@ public class Monsters
         monsterGoblin.xpGiven=20;
         monsterGoblin.weakness="ice";
         monsterGoblin.AIdifficulty=1;
+        monsterGoblin.goldGiven=10;
         return monsterGoblin;
     }
 
@@ -37,6 +39,7 @@ public class Monsters
         monsterOctopus.xpGiven=30;
         monsterOctopus.weakness="fire";
         monsterOctopus.AIdifficulty=1;
+        monsterOctopus.goldGiven=15;
         return monsterOctopus;
     }
 
@@ -49,6 +52,7 @@ public class Monsters
         monsterDragon.xpGiven=50;
         monsterDragon.weakness="ice";
         monsterDragon.AIdifficulty=1;
+        monsterDragon.goldGiven=20;
         return monsterDragon;
     }
 

@@ -8,6 +8,7 @@ public class MonsterStats
     int enemHealth;
     int enemStr;
     int xpGiven;
+    int goldGiven;
     String weakness;
     int AIdifficulty;
     int level;

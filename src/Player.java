@@ -12,6 +12,7 @@ public class Player
     int str=5;
     int intel=5;
     int endur=25;
+    int gold=0;
 
     int x=250;
     int y=250;
@@ -87,6 +88,7 @@ public class Player
     public int getIntel() {
         return intel;
     }
+    
 
     //Deals with movement
     public void moveUp() {

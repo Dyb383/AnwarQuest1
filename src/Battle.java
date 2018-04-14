@@ -181,6 +181,7 @@ public class Battle extends JFrame implements ActionListener,Runnable
         if (myMonster.enemHealth<=0) {
             //Recieves xp from the monster you fought
             battlePlayer.xp=battlePlayer.xp+myMonster.xpGiven;
+            battlePlayer.gold=battlePlayer.gold+myMonster.goldGiven;
             timesDefend=0;
             setVisible(false);
             dispose();
