@@ -170,19 +170,19 @@ public class HubWorld extends JFrame implements ActionListener, Runnable {
 
 
         //TEXT INFO
-        offScreenGraphics.setColor(Color.green);
+        offScreenGraphics.setColor(Color.magenta);
         //First Row
-        offScreenGraphics.drawString("Player Lvl: " + hubPlayer.level, 30, 410);
-        offScreenGraphics.drawString("Player Mana: "+ mana, 205,410);
+        offScreenGraphics.drawString("PLAYER LVL: " + hubPlayer.level, 30, 410);
+        offScreenGraphics.drawString("PLAYER MANA: "+ mana, 205,410);
         //Second Row
-        offScreenGraphics.drawString("Player exp: "+ hubPlayer.xp, 30,435);
-        offScreenGraphics.drawString("Player Health: "+ health, 205,435);
+        offScreenGraphics.drawString("PLAYER EXP: "+ hubPlayer.xp, 30,435);
+        offScreenGraphics.drawString("PLAYER HEALTH: "+ health, 205,435);
         //Third Row
-        offScreenGraphics.drawString("Player Str: "+ hubPlayer.str, 30,460);
-        offScreenGraphics.drawString("Player Potions: "+ numOfHPotions, 205,460);
+        offScreenGraphics.drawString("PLAYER STRENGTH: "+ hubPlayer.str, 30,460);
+        offScreenGraphics.drawString("PLAYER POTIONS: "+ numOfHPotions, 205,460);
         //Fourth Row
-        offScreenGraphics.drawString("Player Int: "+ hubPlayer.intel, 30,485);
-        offScreenGraphics.drawString("Player Elixers: "+ numOfMPotions, 205,485);
+        offScreenGraphics.drawString("PLAYER INT: "+ hubPlayer.intel, 30,485);
+        offScreenGraphics.drawString("PLAYER ELIXIRS: "+ numOfMPotions, 205,485);
         //Ending crap
         g.drawImage(offScreen,0,0,this);
     }
