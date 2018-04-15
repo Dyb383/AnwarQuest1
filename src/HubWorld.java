@@ -149,7 +149,7 @@ public class HubWorld extends JFrame implements ActionListener, Runnable {
         try
         {
             Graphics offScreenGraphics=offScreen.getGraphics();
-            img1 = javax.imageio.ImageIO.read(this.getClass().getResource("PICS/BattleScreen.png"));
+            img1 = javax.imageio.ImageIO.read(this.getClass().getResource("PICS/hubworld.png"));
             offScreenGraphics.drawImage(img1,10,70,null);
         }
         catch (Exception e){}
@@ -170,7 +170,7 @@ public class HubWorld extends JFrame implements ActionListener, Runnable {
 
 
         //TEXT INFO
-        offScreenGraphics.setColor(Color.white);
+        offScreenGraphics.setColor(Color.green);
         //First Row
         offScreenGraphics.drawString("Player Lvl: " + hubPlayer.level, 30, 410);
         offScreenGraphics.drawString("Player Mana: "+ mana, 205,410);
