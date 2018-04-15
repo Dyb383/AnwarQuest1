@@ -122,18 +122,24 @@ public class HubWorld extends JFrame implements ActionListener, Runnable {
     private void playerQuest(Player myPlayer){
         final JFrame parent = new JFrame();
         if (myPlayer.quest == 2){
-            String quest1 = JOptionPane.showInputDialog(parent, "DAMN SON WHERE'D YOU FIND THIS??", null);
+            String quest1 = "DAMN SON WHER'D YOU FIND THIS?";
+            String title1 = "YOU WIN";
+                    JOptionPane.showMessageDialog(parent, quest1, title1, -1 );
             myPlayer.quest = 3;
         }
         if (myPlayer.quest == 1){
-            String quest1 = JOptionPane.showInputDialog(parent, "Well, well, well, maybe I wasn't barking up the wrong tree after all! \n" +
+            String quest2 = "Well, well, well, maybe I wasn't barking up the wrong tree after all! \n" +
                     "I need you to go and defeat an evil wizard who goes by the name Woof. If you do this you would be the hero of this whole" +
-                    " 500x500 pixel world! Bark bark!", null);
+                    " 500x500 pixel world! Bark bark!";
+            String title2 = "You are not prepared.";
+                    JOptionPane.showMessageDialog(parent, quest2, title2, -1 );
             myPlayer.quest = 2;
         }
         if(myPlayer.quest == 0){
-            String quest = JOptionPane.showInputDialog(parent, "Hello new adventurer! I have a ruff task that I need you to take care of. \n" +
-                    "Go win two battles and come back to me.. woof. Do this and you will have proven your worth!", null);
+            String quest = "Hello new adventurer! I have a ruff task that I need you to take care of. \n" +
+                    "Go win two battles and come back to me.. woof. Do this and you will have proven your worth!";
+            String title = "A New Beginning.";
+            JOptionPane.showMessageDialog(parent, quest, title, -1 );
             myPlayer.quest = 1;
         }
         else{
