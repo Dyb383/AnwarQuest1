@@ -4,7 +4,7 @@ import java.awt.Image;
 public class Place {
 	int x;
 	int y;
-	//c for combat, h for hub, s for shop, b for boss
+	//c for combat, h for hub, s for shop, b for boss, z for zone
 	char type;
 	String monster;
 	Image img;
@@ -23,8 +23,6 @@ public class Place {
 
 	public boolean isCollision(Player myPlayer, Place myPlace)
 	{
-	     int playerX=myPlayer.x;
-	     int playerY=myPlayer.y;
 	     if (myPlayer.x+29>=myPlace.x && myPlayer.x<myPlace.x+56 && myPlayer.y+28>=myPlace.y && myPlayer.y<=myPlace.y+56)
 	         return true;
 	     return false;

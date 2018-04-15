@@ -210,6 +210,10 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
 	                {
 	                    Shop shop = new Shop(myPlayer);
 	                }
+	                if(placeW.get(i).type =='z')
+	                {
+	                	zoneCount++;
+	                }
                 
                 	//battleRat.setPlayer(myPlayer);
                 if (playerDirection.equals ("down")){
