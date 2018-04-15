@@ -36,8 +36,8 @@ public class Shop extends JFrame implements ActionListener,Runnable {
         leave.addActionListener(this);
 	}
 	
-	public Shop(Player shopPlayer) {
-		setPlayer(shopPlayer);
+	public Shop(Player myPlayer) {
+		setPlayer(myPlayer);
         init();
         setSize(600,505);
         //setExtendedState (JFrame.MAXIMIZED_BOTH);  //this sets it to maximum size
@@ -106,8 +106,8 @@ public class Shop extends JFrame implements ActionListener,Runnable {
         }
 	}
 
-	public void setPlayer(Player shopPlayer) {
-        shopPlayer=shopPlayer;
+	public void setPlayer(Player myPlayer) {
+        shopPlayer=myPlayer;
     }
 	 
 	public void paint (Graphics g) {
