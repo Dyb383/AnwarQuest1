@@ -30,7 +30,6 @@ public class Battle extends JFrame implements ActionListener,Runnable
     JButton mPotionButton= new JButton ("ELIXIR");
     JPanel buttonPanel = new JPanel();
 
-    int monsterY=75;
     int monsterPic=0;
     int timesDefend=0;
     public void init()
@@ -145,7 +144,7 @@ public class Battle extends JFrame implements ActionListener,Runnable
         setPlayer(p);
         init();
         
-        setSize(588,505);
+        setSize(588,450);
         //setExtendedState (JFrame.MAXIMIZED_BOTH);  //this sets it to maximum size
         // or set the size you want p.setSize(520,520);
         setVisible(true);
@@ -284,7 +283,7 @@ public class Battle extends JFrame implements ActionListener,Runnable
         {
             Graphics offScreenGraphics=offScreen.getGraphics();
             img1 = javax.imageio.ImageIO.read(this.getClass().getResource("PICS/BattleScreen.png"));
-            offScreenGraphics.drawImage(img1,10,70,null);
+            offScreenGraphics.drawImage(img1,0,0,null);
         }
         catch (Exception e){}
     }
@@ -294,7 +293,7 @@ public class Battle extends JFrame implements ActionListener,Runnable
         {
             Graphics offScreenGraphics=offScreen.getGraphics();
             img = javax.imageio.ImageIO.read(this.getClass().getResource("PICS/BattleBackPlayer.png"));
-            offScreenGraphics.drawImage(img,50,280,null);
+            offScreenGraphics.drawImage(img,50,210,null);
         }
         catch (Exception e){}
     }
@@ -305,7 +304,7 @@ public class Battle extends JFrame implements ActionListener,Runnable
             {
                 Graphics offScreenGraphics=offScreen.getGraphics();
                 img = javax.imageio.ImageIO.read(this.getClass().getResource("PICS/Rat.png"));
-                offScreenGraphics.drawImage(img,250,monsterY,null);
+                offScreenGraphics.drawImage(img,250,65,null);
             }
             catch (Exception e){}
         }
@@ -314,7 +313,7 @@ public class Battle extends JFrame implements ActionListener,Runnable
             {
                 Graphics offScreenGraphics=offScreen.getGraphics();
                 img = javax.imageio.ImageIO.read(this.getClass().getResource("PICS/Goblin.png"));
-                offScreenGraphics.drawImage(img,250,monsterY,null);
+                offScreenGraphics.drawImage(img,250,45,null);
             }
             catch (Exception e){}
         }
@@ -323,7 +322,7 @@ public class Battle extends JFrame implements ActionListener,Runnable
             {
                 Graphics offScreenGraphics=offScreen.getGraphics();
                 img = javax.imageio.ImageIO.read(this.getClass().getResource("PICS/Octopus.png"));
-                offScreenGraphics.drawImage(img,250,monsterY,null);
+                offScreenGraphics.drawImage(img,250,45,null);
             }
             catch (Exception e){}
         }
@@ -332,7 +331,7 @@ public class Battle extends JFrame implements ActionListener,Runnable
             {
                 Graphics offScreenGraphics=offScreen.getGraphics();
                 img = javax.imageio.ImageIO.read(this.getClass().getResource("PICS/BigBoye.png"));
-                offScreenGraphics.drawImage(img,250,monsterY,null);
+                offScreenGraphics.drawImage(img,250,35,null);
             }
             catch (Exception e){}
 
@@ -345,7 +344,7 @@ public class Battle extends JFrame implements ActionListener,Runnable
         //starting crap
         Graphics g = getGraphics();
         Graphics offScreenGraphics=offScreen.getGraphics();
-        offScreenGraphics.drawImage(img,0,70,null);
+        offScreenGraphics.drawImage(img,0,0,null);
 
         //Drawing methods
         drawBattleScreen(offScreenGraphics);
@@ -362,18 +361,18 @@ public class Battle extends JFrame implements ActionListener,Runnable
         //TEXT INFO
         offScreenGraphics.setColor(Color.white);
         //First Row
-        offScreenGraphics.drawString("Player Lvl: " + battlePlayer.level, 30, 410);
-        offScreenGraphics.drawString("Player Mana: "+ battlePlayer.currentMana, 205,410);
-        offScreenGraphics.drawString("Enemy Health: "+ myMonster.enemHealth, 395,410);
+        offScreenGraphics.drawString("Player Lvl: " + battlePlayer.level, 23, 345);
+        offScreenGraphics.drawString("Player Mana: "+ battlePlayer.currentMana, 198,345);
+        offScreenGraphics.drawString("Enemy Health: "+ myMonster.enemHealth, 388,345);
         //Second Row
-        offScreenGraphics.drawString("Player exp: "+ battlePlayer.xp, 30,435);
-        offScreenGraphics.drawString("Player Health: "+ battlePlayer.currentHP, 205,435);
+        offScreenGraphics.drawString("Player exp: "+ battlePlayer.xp, 23,370);
+        offScreenGraphics.drawString("Player Health: "+ battlePlayer.currentHP, 198,370);
         //Third Row
-        offScreenGraphics.drawString("Player Str: "+ battlePlayer.str, 30,460);
-        offScreenGraphics.drawString("Player Potions: "+ numOfHPotions, 205,460);
+        offScreenGraphics.drawString("Player Str: "+ battlePlayer.str, 23,395);
+        offScreenGraphics.drawString("Player Potions: "+ numOfHPotions, 198,395);
         //Fourth Row
-        offScreenGraphics.drawString("Player Int: "+ battlePlayer.intel, 30,485);
-        offScreenGraphics.drawString("Player Elixers: "+ numOfMPotions, 205,485);
+        offScreenGraphics.drawString("Player Int: "+ battlePlayer.intel, 23,420);
+        offScreenGraphics.drawString("Player Elixers: "+ numOfMPotions, 198,420);
         //Ending crap
         g.drawImage(offScreen,0,0,this); 
     }

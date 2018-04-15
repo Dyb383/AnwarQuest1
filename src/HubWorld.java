@@ -18,18 +18,19 @@ public class HubWorld extends JFrame implements ActionListener, Runnable {
     int health;
     int mana;
     //Finds monster based on monster name
-    JButton healButton = new JButton("HEAL");
-    JButton questButton = new JButton("QUEST");
-    JButton leaveButton = new JButton("LEAVE");
-    JPanel buttonPanel = new JPanel();
+    Button healButton = new Button("HEAL");
+    Button questButton = new Button("QUEST");
+    Button leaveButton = new Button("LEAVE");
+    
 
     public void init() {
-        //setting the layout of the battle window
+        //setting the layout of the hubworld window
         Container screen = getContentPane();
+        Panel buttonPanel = new Panel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
-        buttonPanel.add(healButton);
-        buttonPanel.add(questButton);
-        buttonPanel.add(leaveButton);
+        buttonPanel.add(healButton, BorderLayout.EAST);
+        buttonPanel.add(questButton, BorderLayout.EAST);
+        buttonPanel.add(leaveButton, BorderLayout.EAST);
         healButton.addActionListener(this);
         questButton.addActionListener(this);
         leaveButton.addActionListener(this);
@@ -115,12 +116,15 @@ public class HubWorld extends JFrame implements ActionListener, Runnable {
     //Makes the current player in adventure the same as battlePlayer.
 
     private void playerHeal(){
+    	final JFrame parent = new JFrame();
+        Graphics offScreenGraphics=offScreen.getGraphics();
         hubPlayer.currentHP = hubPlayer.maxHP;
         hubPlayer.currentMana = hubPlayer.maxMana;
     }
 
     private void playerQuest(Player myPlayer){
         final JFrame parent = new JFrame();
+        Graphics offScreenGraphics=offScreen.getGraphics();
         if (myPlayer.quest == 2){
             String quest1 = "DAMN SON WHER'D YOU FIND THIS?";
             String title1 = "YOU WIN";
@@ -156,7 +160,7 @@ public class HubWorld extends JFrame implements ActionListener, Runnable {
         {
             Graphics offScreenGraphics=offScreen.getGraphics();
             img1 = javax.imageio.ImageIO.read(this.getClass().getResource("PICS/hubworld.png"));
-            offScreenGraphics.drawImage(img1,10,70,null);
+            offScreenGraphics.drawImage(img1,0,0,null);
         }
         catch (Exception e){}
     }
@@ -168,7 +172,7 @@ public class HubWorld extends JFrame implements ActionListener, Runnable {
         //starting crap
         Graphics g = getGraphics();
         Graphics offScreenGraphics=offScreen.getGraphics();
-        offScreenGraphics.drawImage(img,0,70,null);
+        offScreenGraphics.drawImage(img,0,0,null);
 
         //Drawing methods
         setPlayer(hubPlayer);

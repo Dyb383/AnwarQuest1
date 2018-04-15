@@ -20,7 +20,7 @@ public class Shop extends JFrame implements ActionListener,Runnable {
     Button leave = new Button("LEAVE");
     
 	public void init() {                
-		//setting the layout of the battle window
+		//setting the layout of the shop window
 		Container screen = getContentPane();
 	    Panel buttonPanel = new Panel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
