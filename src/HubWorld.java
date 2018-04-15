@@ -126,14 +126,14 @@ public class HubWorld extends JFrame implements ActionListener, Runnable {
             myPlayer.quest = 3;
         }
         if (myPlayer.quest == 1){
-            String quest1 = JOptionPane.showInputDialog(parent, "Well, well, well, maybe you are not so useless after all! \n" +
-                    "I need you to go and defeat an evil wizard who goes by the name Anwar. If you do this you would be the hero of this whole" +
-                    " 500x500 pixel world!", null);
+            String quest1 = JOptionPane.showInputDialog(parent, "Well, well, well, maybe I wasn't barking up the wrong tree after all! \n" +
+                    "I need you to go and defeat an evil wizard who goes by the name Woof. If you do this you would be the hero of this whole" +
+                    " 500x500 pixel world! Bark bark!", null);
             myPlayer.quest = 2;
         }
         if(myPlayer.quest == 0){
-            String quest = JOptionPane.showInputDialog(parent, "Hello new adventurer! I have a task that I need you to take care of. \n" +
-                    "Go win two battles and come back to me. Do this and you will have proven your worth!", null);
+            String quest = JOptionPane.showInputDialog(parent, "Hello new adventurer! I have a ruff task that I need you to take care of. \n" +
+                    "Go win two battles and come back to me.. woof. Do this and you will have proven your worth!", null);
             myPlayer.quest = 1;
         }
         else{
