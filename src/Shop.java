@@ -36,8 +36,8 @@ public class Shop extends JFrame implements ActionListener,Runnable {
         leave.addActionListener(this);
 	}
 	
-	public Shop(Player myPlayer) {
-		setPlayer(myPlayer);
+	public Shop(Player shopPlayer) {
+		setPlayer(shopPlayer);
         init();
         setSize(600,505);
         //setExtendedState (JFrame.MAXIMIZED_BOTH);  //this sets it to maximum size
@@ -71,7 +71,7 @@ public class Shop extends JFrame implements ActionListener,Runnable {
         Graphics offScreenGraphics=offScreen.getGraphics();
 		if (shopPlayer.gold>=200){
 			shopPlayer.gold=shopPlayer.gold-200;
-			shopPlayer.intel=shopPlayer.intel*2;
+			shopPlayer.intel=shopPlayer.intel*1.5;
 		}
 		else {
             String quest1 = JOptionPane.showInputDialog(parent, "You do not have enough money for an Intelligence upgrade!", null);
@@ -98,7 +98,7 @@ public class Shop extends JFrame implements ActionListener,Runnable {
         Graphics offScreenGraphics=offScreen.getGraphics();
 		if (shopPlayer.gold>=200){
 			shopPlayer.gold=shopPlayer.gold-200;
-			shopPlayer.str=shopPlayer.str*2;
+			shopPlayer.str=shopPlayer.str*1.7w;
 		}
 		else {
             String quest1 = JOptionPane.showInputDialog(parent, "You do not have enough money for a Strength upgrade!", null);
@@ -106,8 +106,8 @@ public class Shop extends JFrame implements ActionListener,Runnable {
         }
 	}
 
-	public void setPlayer(Player myPlayer) {
-        shopPlayer=myPlayer;
+	public void setPlayer(Player shopPlayer) {
+        shopPlayer=shopPlayer;
     }
 	 
 	public void paint (Graphics g) {
@@ -157,17 +157,15 @@ public class Shop extends JFrame implements ActionListener,Runnable {
 
         //TEXT INFO
         offScreenGraphics.setColor(Color.white);
-        //First Row
-        offScreenGraphics.drawString("Player Lvl: " + shopPlayer.level, 30, 410);
-        offScreenGraphics.drawString("Player Gold: " + shopPlayer.gold, 205,410);
-        //Second Row
-        offScreenGraphics.drawString("Player exp: " + shopPlayer.xp, 30,435);
-        offScreenGraphics.drawString("Player Health: " + shopPlayer.endur, 205,435);
-        //Third Row
-        offScreenGraphics.drawString("Player Str: " + shopPlayer.str, 30,460);
-        offScreenGraphics.drawString("Player Mana: " + shopPlayer.intel*5, 205, 460);
-        //Fourth Row
-        offScreenGraphics.drawString("Player Int: " + shopPlayer.intel, 30,485);
+        offScreenGraphics.drawString("Gold: " + shopPlayer.gold, 20, 465);
+        offScreenGraphics.drawString("Player XP: "+ shopPlayer.xp, 20,480);
+        offScreenGraphics.drawString("Player Level: " + shopPlayer.level, 20, 495);
+        //Second Column
+        offScreenGraphics.drawString("Player Str: "+ shopPlayer.str, 150,480);
+        offScreenGraphics.drawString("Player Int: "+ shopPlayer.intel, 150,495);
+        //Third Column
+        offScreenGraphics.drawString("Player Health: "+ shopPlayer.currentHP+" / "+shopPlayer.endur, 250,480);
+        offScreenGraphics.drawString("Player Mana: "+ shopPlayer.currentMana + " / "+shopPlayer.intel*5, 250,495);
         //Ending crap
         g.drawImage(offScreen,0,0,this); 
     }

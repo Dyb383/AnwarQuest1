@@ -99,12 +99,12 @@ public class HubWorld extends JFrame implements ActionListener, Runnable {
         int y=e.getY();
     }
 
-    public void setPlayer(Player myPlayer) {
-        hubPlayer=myPlayer;
+    public void setPlayer(Player huPlayer) {
+        hubPlayer=huPlayer;
     }
 
-    public HubWorld(Player myPlayer) {
-        setPlayer(myPlayer);
+    public HubWorld(Player huPlayer) {
+        setPlayer(huPlayer);
         init();
         setSize(600,505);
         //setExtendedState (JFrame.MAXIMIZED_BOTH);  //this sets it to maximum size
@@ -119,22 +119,22 @@ public class HubWorld extends JFrame implements ActionListener, Runnable {
         hubPlayer.currentMana = hubPlayer.maxMana;
     }
 
-    private void playerQuest(Player myPlayer){
+    private void playerQuest(Player hubPlayer){
         final JFrame parent = new JFrame();
-        if (myPlayer.quest == 2){
+        if (hubPlayer.quest == 2){
             String quest1 = JOptionPane.showInputDialog(parent, "DAMN SON WHERE'D YOU FIND THIS??", null);
-            myPlayer.quest = 3;
+            hubPlayer.quest = 3;
         }
-        if (myPlayer.quest == 1){
+        if (hubPlayer.quest == 1){
             String quest1 = JOptionPane.showInputDialog(parent, "Well, well, well, maybe I wasn't barking up the wrong tree after all! \n" +
                     "I need you to go and defeat an evil wizard who goes by the name Woof. If you do this you would be the hero of this whole" +
                     " 500x500 pixel world! Bark bark!", null);
-            myPlayer.quest = 2;
+            hubPlayer.quest = 2;
         }
-        if(myPlayer.quest == 0){
+        if(hubPlayer.quest == 0){
             String quest = JOptionPane.showInputDialog(parent, "Hello new adventurer! I have a ruff task that I need you to take care of. \n" +
                     "Go win two battles and come back to me.. woof. Do this and you will have proven your worth!", null);
-            myPlayer.quest = 1;
+            hubPlayer.quest = 1;
         }
         else{
             setVisible(false);
@@ -170,19 +170,15 @@ public class HubWorld extends JFrame implements ActionListener, Runnable {
 
 
         //TEXT INFO
-        offScreenGraphics.setColor(Color.magenta);
-        //First Row
-        offScreenGraphics.drawString("PLAYER LVL: " + hubPlayer.level, 30, 410);
-        offScreenGraphics.drawString("PLAYER MANA: "+ mana, 205,410);
-        //Second Row
-        offScreenGraphics.drawString("PLAYER EXP: "+ hubPlayer.xp, 30,435);
-        offScreenGraphics.drawString("PLAYER HEALTH: "+ health, 205,435);
-        //Third Row
-        offScreenGraphics.drawString("PLAYER STRENGTH: "+ hubPlayer.str, 30,460);
-        offScreenGraphics.drawString("PLAYER POTIONS: "+ numOfHPotions, 205,460);
-        //Fourth Row
-        offScreenGraphics.drawString("PLAYER INT: "+ hubPlayer.intel, 30,485);
-        offScreenGraphics.drawString("PLAYER ELIXIRS: "+ numOfMPotions, 205,485);
+        offScreenGraphics.drawString("Gold: " + hubPlayer.gold, 20, 465);
+        offScreenGraphics.drawString("Player XP: "+ hubPlayer.xp, 20,480);
+        offScreenGraphics.drawString("Player Level: " + hubPlayer.level, 20, 495);
+        //Second Column
+        offScreenGraphics.drawString("Player Str: "+ hubPlayer.str, 150,480);
+        offScreenGraphics.drawString("Player Int: "+ hubPlayer.intel, 150,495);
+        //Third Column
+        offScreenGraphics.drawString("Player Health: "+ hubPlayer.currentHP+" / "+hubPlayer.endur, 250,480);
+        offScreenGraphics.drawString("Player Mana: "+ hubPlayer.currentMana + " / "+hubPlayer.intel*5, 250,495);
         //Ending crap
         g.drawImage(offScreen,0,0,this);
     }
