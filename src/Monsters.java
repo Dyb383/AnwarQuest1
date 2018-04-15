@@ -21,7 +21,7 @@ public class Monsters
         }
         return monsterRat;
     }
-a
+
     public MonsterStats createGoblin(Player p) {
         MonsterStats monsterGoblin = new MonsterStats();
         monsterGoblin.name = "Goblin";
