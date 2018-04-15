@@ -30,7 +30,7 @@ public class Battle extends JFrame implements ActionListener,Runnable
     JButton mPotionButton= new JButton ("ELIXIR");
     JPanel buttonPanel = new JPanel();
 
-    int monsterY=100;
+    int monsterY=75;
     int monsterPic=0;
     int timesDefend=0;
     public void init()
