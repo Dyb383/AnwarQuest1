@@ -70,7 +70,7 @@ public class Player
         if (xp>=Math.pow(level,2)+20){
             if (playerClass==(1)){
                 level=level+1;
-                str=str+3;
+                str=str+5;
                 intel=intel+1;
                 endur=endur+7;
                 xp=0;

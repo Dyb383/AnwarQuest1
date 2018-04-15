@@ -257,6 +257,8 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
     	Place z1P3 = new Place(250,50,'c');
     	Place z1P4 = new Place(100,430,'c');
     	Place z1P5 = new Place (429,220,'s');
+    	Place z1P6 = new Place ( 300, 300, 'z');
+    	z1P6.setImage("Cave.png");
     	z1P1.setImage("Cave.png");
     	z1P2.setImage("Castle.png");
     	z1P3.setImage("Tent.png");
@@ -269,9 +271,11 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
     	z1.addLocation(z1P3);
     	z1.addLocation(z1P4);
     	z1.addLocation(z1P5);
-    	
+    	z1.addLocation(z1P6);
+    	z2.setImage("zone2BG.png");
     	z1.setImage("backgroundnew.png");
     	zOut.add(z1);
+    	zOut.add(z2);
     	return zOut;
 
     	
