@@ -171,7 +171,7 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
         ArrayList<Place> placeW = zwork.getLocations();
         Graphics g = getGraphics();
         Graphics offScreenGraphics=offScreen.getGraphics();
-        offScreenGraphics.drawImage(img,0,0,null);
+        offScreenGraphics.drawImage(img,0,15,null);
         //Title/Class/Beginning Background
         if (gameStarted==false && classScreen==false) {
             drawTitle(offScreenGraphics);
@@ -213,81 +213,16 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
                 
                 	//battleRat.setPlayer(myPlayer);
                 if (playerDirection.equals ("down")){
-                    myPlayer.y-=10; }
+                    myPlayer.y-=20; }
                 if (playerDirection.equals ("up")){
-                    myPlayer.y+=10; }
+                    myPlayer.y+=20; }
                 if (playerDirection.equals ("left")){
-                    myPlayer.x+=10; }
+                    myPlayer.x+=20; }
                 if (playerDirection.equals ("right")){
-                    myPlayer.x-=10; }
+                    myPlayer.x-=20; }
 	            }
 	        }
-            /*if (battlePlaces.isCollision2(myPlayer)==true) {
-                 HubWorld hub = new HubWorld(myPlayer);
-                //battleDragon.setPlayer(myPlayer);
-                if (playerDirection.equals ("down")){
-                    myPlayer.y-=10; }
-                if (playerDirection.equals ("up")){
-                    myPlayer.y+=10; }
-                if (playerDirection.equals ("left")){
-                    myPlayer.x+=10; }
-                if (playerDirection.equals ("right")){
-                    myPlayer.x-=10; }
-            }
-            if (battlePlaces.isCollision3(myPlayer)==true) {
-                Battle battleGoblin = new Battle("Goblin", myPlayer);
-                //battleGoblin.setPlayer(myPlayer);
-                if (playerDirection.equals ("down")){
-                    myPlayer.y-=10; }
-                if (playerDirection.equals ("up")){
-                    myPlayer.y+=10; }
-                if (playerDirection.equals ("left")){
-                    myPlayer.x+=10; }
-                if (playerDirection.equals ("right")){
-                    myPlayer.x-=10; }
-            }
-            if (battlePlaces.isCollision4(myPlayer)==true) {
-                Battle battleOctopus = new Battle("Octopus", myPlayer);
-                //battleOctopus.setPlayer(myPlayer);
-                if (playerDirection.equals ("down")){
-                    myPlayer.y-=10; }
-                if (playerDirection.equals ("up")){
-                    myPlayer.y+=10; }
-                if (playerDirection.equals ("left")){
-                    myPlayer.x+=10; }
-                if (playerDirection.equals ("right")){
-                    myPlayer.x-=10; 
-                    }
-            }
-            
-            if (battlePlaces.isCollisionShop(myPlayer)==true) {
-                Shop shop = new Shop(myPlayer);
-                //battleOctopus.setPlayer(myPlayer);
-                if (playerDirection.equals ("down")){
-                    myPlayer.y-=10; }
-                if (playerDirection.equals ("up")){
-                    myPlayer.y+=10; }
-                if (playerDirection.equals ("left")){
-                    myPlayer.x+=10; }
-                if (playerDirection.equals ("right")){
-                    myPlayer.x-=10; 
-                    }
-            }
-            
-            if (battlePlaces.isCollisionNext(myPlayer)==true) {
-            	if (checkForNewGame()==false){
-            		//in here will be where we paint the second level
-            		//will probably need a new method along the lines of update2ndLevel();
-            	}
-            	else if (checkForNewGame()==true){
-            		offScreenGraphics.drawString("Player must level up before continuing.", 200, 400);
-            	}
-            }
-            
-            if (battlePlaces.isCollisionShop(myPlayer)==true) {
-            	Shop shop = new Shop(myPlayer);
-            }*/
-            
+                       
             //PLAYER MOVING IN A DIRECTION
             if (playerDirection.equals ("down")){
                 myPlayer.drawPlayerDown(offScreenGraphics); }
