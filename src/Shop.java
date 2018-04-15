@@ -71,7 +71,7 @@ public class Shop extends JFrame implements ActionListener,Runnable {
         Graphics offScreenGraphics=offScreen.getGraphics();
 		if (shopPlayer.gold>=200){
 			shopPlayer.gold=shopPlayer.gold-200;
-			shopPlayer.intel=shopPlayer.intel*1.5;
+			shopPlayer.intel=shopPlayer.intel*2;
 		}
 		else {
             String quest1 = JOptionPane.showInputDialog(parent, "You do not have enough money for an Intelligence upgrade!", null);
@@ -98,7 +98,7 @@ public class Shop extends JFrame implements ActionListener,Runnable {
         Graphics offScreenGraphics=offScreen.getGraphics();
 		if (shopPlayer.gold>=200){
 			shopPlayer.gold=shopPlayer.gold-200;
-			shopPlayer.str=shopPlayer.str*1.7w;
+			shopPlayer.str=shopPlayer.str*2;
 		}
 		else {
             String quest1 = JOptionPane.showInputDialog(parent, "You do not have enough money for a Strength upgrade!", null);
