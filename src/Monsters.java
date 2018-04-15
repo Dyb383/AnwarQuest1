@@ -58,22 +58,22 @@ public class Monsters
         return monsterOctopus;
     }
 
-    public MonsterStats createDragon(Player p) {
-        MonsterStats monsterDragon = new MonsterStats();
-        monsterDragon.name = "Dragon";
-        monsterDragon.enemHealth=100;
-        monsterDragon.enemStr=10;
-        monsterDragon.level=10;
-        monsterDragon.xpGiven=50;
-        monsterDragon.weakness="ice";
-        monsterDragon.goldGiven=20;
+    public MonsterStats createWoof(Player p) {
+        MonsterStats monsterWoof = new MonsterStats();
+        monsterWoof.name = "Woof Barkington";
+        monsterWoof.enemHealth=200;
+        monsterWoof.enemStr=15;
+        monsterWoof.level=15;
+        monsterWoof.xpGiven=100;
+        monsterWoof.weakness="";
+        monsterWoof.goldGiven=20;
         if (p.level>=1 && p.level<=9) {
-        	monsterDragon.AIdifficulty=1;
+        	monsterWoof.AIdifficulty=1;
         }
         if (p.level>=10 && p.level<=19) {
-        	monsterDragon.AIdifficulty=2;
+        	monsterWoof.AIdifficulty=2;
         }
-        return monsterDragon;
+        return monsterWoof;
     }
 
 

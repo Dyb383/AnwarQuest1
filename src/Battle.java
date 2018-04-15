@@ -138,9 +138,9 @@ public class Battle extends JFrame implements ActionListener,Runnable
             monsterPic=3;
             myMonster=battleMonsters.createOctopus(p);
         }
-        if (monsterName.equals("Dragon")){
+        if (monsterName.equals("Woof Barkington")){
             monsterPic=4;
-            myMonster=battleMonsters.createDragon(p);
+            myMonster=battleMonsters.createWoof(p);
         }
         setPlayer(p);
         init();
@@ -331,7 +331,7 @@ public class Battle extends JFrame implements ActionListener,Runnable
             try
             {
                 Graphics offScreenGraphics=offScreen.getGraphics();
-                img = javax.imageio.ImageIO.read(this.getClass().getResource("PICS/Dragon.png"));
+                img = javax.imageio.ImageIO.read(this.getClass().getResource("PICS/BigBoye.png"));
                 offScreenGraphics.drawImage(img,250,monsterY,null);
             }
             catch (Exception e){}
