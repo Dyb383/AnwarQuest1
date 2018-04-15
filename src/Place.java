@@ -4,7 +4,7 @@ import java.awt.Image;
 public class Place {
 	int x;
 	int y;
-	//c for combat, h for hub, s for shop, b for boss, z for zone
+	//c for combat, h for hub, s for shop, b for boss, u for forward zone, d for backw zone
 	char type;
 	String monster;
 	Image img;

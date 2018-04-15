@@ -177,10 +177,7 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
             drawTitle(offScreenGraphics);
             }
         if (gameStarted==true) {  
-            for(int i=0; i<zwork.getLocations().size(); i++) {
-                Place pW = placeW.get(i); 
-            	pW.drawPlace(offScreenGraphics);
-            }
+
 
             //STATS
             //First Column
@@ -210,9 +207,17 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
 	                {
 	                    Shop shop = new Shop(myPlayer);
 	                }
-	                if(placeW.get(i).type =='z')
+	                if(placeW.get(i).type =='u')
 	                {
 	                	zoneCount++;
+	                	myPlayer.x = zoneArr.get(zoneCount).getDefaultX();
+	                	myPlayer.y = zoneArr.get(zoneCount).getDefaultY();
+	                }
+	                if(placeW.get(i).type=='d')
+	                {
+	                	zoneCount--;
+	                	myPlayer.x = zoneArr.get(zoneCount).getDefaultX();
+	                	myPlayer.y = zoneArr.get(zoneCount).getDefaultY();
 	                }
                 
                 	//battleRat.setPlayer(myPlayer);
@@ -237,6 +242,10 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
             if (playerDirection.equals ("right")){
                 myPlayer.drawPlayerRight(offScreenGraphics); }
             drawZone(offScreenGraphics);
+            for(int i=0; i<zwork.getLocations().size(); i++) {
+                Place pW = placeW.get(i); 
+            	pW.drawPlace(offScreenGraphics);
+            }
         }
         if (classScreen==true) {
             drawClassScreen(offScreenGraphics); }
@@ -257,8 +266,8 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
     	Place z1P3 = new Place(250,50,'c');
     	Place z1P4 = new Place(100,430,'c');
     	Place z1P5 = new Place (429,220,'s');
-    	Place z1P6 = new Place ( 300, 300, 'z');
-    	z1P6.setImage("Cave.png");
+    	Place z1P6 = new Place ( 300, 300, 'u');
+    	z1P6.setImage("Hpotion.png");
     	z1P1.setImage("Cave.png");
     	z1P2.setImage("Castle.png");
     	z1P3.setImage("Tent.png");
@@ -272,6 +281,10 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
     	z1.addLocation(z1P4);
     	z1.addLocation(z1P5);
     	z1.addLocation(z1P6);
+    	
+    	Place z2P1 = new Place(100,100,'d');
+    	z2P1.setImage("Tent.png");
+    	z2.addLocation(z2P1);
     	z2.setImage("zone2BG.png");
     	z1.setImage("backgroundnew.png");
     	zOut.add(z1);
