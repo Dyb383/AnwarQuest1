@@ -259,7 +259,7 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
     {
     	ArrayList<Zone> zOut = new ArrayList<Zone>();
     	Zone z1 = new Zone();
-    	Zone z2 = new Zone();
+    	Zone z2 = new Zone(); 
     	
     	Place z1P1 = new Place(100, 100, 'c');
     	Place z1P2 = new Place(200,200,'h');
@@ -267,7 +267,7 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
     	Place z1P4 = new Place(100,430,'c');
     	Place z1P5 = new Place (300,300,'s');
     	Place z1P6 = new Place ( 429, 220, 'u');
-    	z1P5.setImage("Hpotion.png");
+    	z1P5.setImage("shopColl.png");
     	z1P1.setImage("Cave.png");
     	z1P2.setImage("Castle.png");
     	z1P3.setImage("Tent.png");
@@ -285,7 +285,7 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
     	Place z2P1 = new Place(100,100,'d');
     	Place z2P2 = new Place(250,250,'c');
     	z2P1.setImage("Tent.png");
-    	z2P2.setMonster("Rat");
+    	z2P2.setMonster("Dragon");
     	z2P2.setImage("boosHat.png");
     	z2.addLocation(z2P1);
     	z2.addLocation(z2P2);

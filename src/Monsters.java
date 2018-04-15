@@ -13,11 +13,11 @@ public class Monsters
         monsterRat.level=1;
         monsterRat.weakness="fire";
         monsterRat.goldGiven=5;
-        if (p.level>=1 && p.level<=9) {
-        	monsterRat.AIdifficulty=1;
-        }
-        if (p.level>=10 && p.level<=19) {
-        	monsterRat.AIdifficulty=2;
+        if(p.level > 4) 
+        {
+        	int t = p.level%4;
+        	int i = p.level-t;
+        	monsterRat.AI(i);
         }
         return monsterRat;
     }
@@ -31,11 +31,11 @@ public class Monsters
         monsterGoblin.xpGiven=20;
         monsterGoblin.weakness="ice";
         monsterGoblin.goldGiven=10;
-        if (p.level>=1 && p.level<=9) {
-        	monsterGoblin.AIdifficulty=1;
-        }
-        if (p.level>=10 && p.level<=19) {
-        	monsterGoblin.AIdifficulty=2;
+        if(p.level > 4) 
+        {
+        	int t = p.level%4;
+        	int i = p.level-t;
+        	monsterGoblin.AI(i);
         }
         return monsterGoblin;
     }
@@ -49,11 +49,11 @@ public class Monsters
         monsterOctopus.xpGiven=30;
         monsterOctopus.weakness="fire";
         monsterOctopus.goldGiven=15;
-        if (p.level>=1 && p.level<=9) {
-        	monsterOctopus.AIdifficulty=1;
-        }
-        if (p.level>=10 && p.level<=19) {
-        	monsterOctopus.AIdifficulty=2;
+        if(p.level > 4) 
+        {
+        	int t = p.level%4;
+        	int i = p.level-t;
+        	monsterOctopus.AI(i);
         }
         return monsterOctopus;
     }
@@ -67,11 +67,11 @@ public class Monsters
         monsterDragon.xpGiven=50;
         monsterDragon.weakness="ice";
         monsterDragon.goldGiven=20;
-        if (p.level>=1 && p.level<=9) {
-        	monsterDragon.AIdifficulty=1;
-        }
-        if (p.level>=10 && p.level<=19) {
-        	monsterDragon.AIdifficulty=2;
+        if(p.level > 4) 
+        {
+        	int t = p.level%4;
+        	int i = p.level-t;
+        	monsterDragon.AI(i);
         }
         return monsterDragon;
     }
