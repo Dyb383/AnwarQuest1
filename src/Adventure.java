@@ -293,9 +293,7 @@ public class Adventure extends JFrame implements ActionListener,KeyListener,Runn
     	z1.setImage("backgroundnew.png");
     	zOut.add(z1);
     	zOut.add(z2);
-    	return zOut;
-
-    	
+    	return zOut;  	
     }
     
     
